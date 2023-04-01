@@ -1,0 +1,32 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss src/index.css -o static/build.css",
+    "watch:css": "cross-env TAILWIND_MODE=watch postcss src/index.css -o static/tailwind.css --watch",
+    "dev": "concurrently -n \"air,css\" -c \"blue,red\" \"air\" \"npm run watch:css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubet/go-fiber-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kubet/go-fiber-template/issues"
+  },
+  "homepage": "https://github.com/kubet/go-fiber-template#readme",
+  "dependencies": {
+    "tailwindcss": "^3.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
+  }
+}

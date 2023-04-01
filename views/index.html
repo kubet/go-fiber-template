@@ -5,112 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <style>
-      /* Inline critical CSS here */
-      body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
-      a {
-        text-decoration: none;
-      }
-      .bg-gray-100 {
-        background-color: #f7fafc;
-      }
-      .max-w-screen-lg {
-        max-width: 1024px;
-      }
-      .mx-auto {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .px-4 {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      .py-12 {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-      .text-2xl {
-        font-size: 1.5rem;
-      }
-      .font-bold {
-        font-weight: 700;
-      }
-      .mb-8 {
-        margin-bottom: 2rem;
-      }
-      .flex {
-        display: flex;
-      }
-      .flex-col {
-        flex-direction: column;
-      }
-      .md\:flex-row {
-        flex-direction: row;
-      }
-      .border {
-        border-width: 1px;
-      }
-      .rounded-md {
-        border-radius: 0.375rem;
-      }
-      .shadow-sm {
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      }
-      .hover\:shadow-lg:hover {
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
-      .mb-8 {
-        margin-bottom: 2rem;
-      }
-      .flex-1 {
-        flex: 1;
-      }
-      .p-4 {
-        padding: 1rem;
-      }
-      .text-lg {
-        font-size: 1.125rem;
-      }
-      .font-semibold {
-        font-weight: 600;
-      }
-      .mb-2 {
-        margin-bottom: 0.5rem;
-      }
-      .text-gray-700 {
-        color: #4a5568;
-      }
-      .flex-none {
-        flex: none;
-      }
-      .bg-gray-100 {
-        background-color: #f7fafc;
-      }
-      .p-4 {
-        padding: 1rem;
-      }
-      .flex {
-        display: flex;
-      }
-      .items-center {
-        align-items: center;
-      }
-      .justify-center {
-        justify-content: center;
-      }
-      .bg-white {
-        background-color: #ffffff;
-      }
-    </style>
+    <link rel="stylesheet" href="/static/tailwind.css" />
     <title>{{.Title}}</title>
   </head>
   <body class="bg-gray-100">
     <div class="max-w-screen-lg mx-auto px-4 py-12">
       <div>
-        <h1 class="text-2xl font-bold mb-8">{{.Heading}}</h1>
+        <h1 class="text-2xl text-[#c771b7] font-bold mb-8">{{.Heading}}</h1>
         <div class="mb-4">
           <input
             type="text"
@@ -143,7 +44,6 @@
 
       searchInput.addEventListener('input', (e) => {
         const query = e.target.value;
-
         fetch(`/api/products?search=${encodeURIComponent(query)}`)
           .then((response) => response.json())
           .then((products) => {
