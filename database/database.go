@@ -26,6 +26,15 @@ func ConnectDb() {
 		os.Getenv("DB_NAME"),
 	)
 
+	//   // Set the maximum number of open connections.
+	//   sqlDB.SetMaxOpenConns(50)
+
+	//   // Set the maximum number of idle connections.
+	//   sqlDB.SetMaxIdleConns(10)
+
+	//   // Set the maximum lifetime of a connection.
+	//   sqlDB.SetConnMaxLifetime(time.Minute * 5)
+
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
 	})
@@ -40,6 +49,7 @@ func ConnectDb() {
 
 	log.Println("running migrations")
 	db.AutoMigrate(&models.Product{})
+	db.AutoMigrate(&models.User{})
 
 	DB = Dbinstance{
 		Db: db,

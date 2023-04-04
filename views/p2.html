@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Product Page</title>
+    <link rel="stylesheet" href="/static/tailwind.css" />
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-white py-4 border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-semibold text-gray-800">Logo</div>
+          <input
+            type="search"
+            placeholder="Search"
+            class="border border-gray-300 rounded-md w-1/2 pl-3 py-2"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto px-4 py-16">
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 md:col-span-8">
+          <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="w-full h-64 relative">
+              <img
+                class="w-full h-full object-cover absolute"
+                src="https://via.placeholder.com/640x360"
+                alt="Product Image"
+              />
+              <button
+                class="bg-gray-800 bg-opacity-50 text-white absolute top-1/2 left-2 p-2 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <button
+                class="bg-gray-800 bg-opacity-50 text-white absolute top-1/2 right-2 p-2 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                Product Title
+              </h2>
+              <p class="text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur aliquet libero eget lorem venenatis ultricies. Sed
+                velit ipsum, facilisis ut pharetra eu, sollicitudin non odio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-4">
+          <div class="bg-white shadow-md rounded-lg overflow-hidden p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">
+              Recommended Products
+            </h3>
+            <ul>
+              <li class="mb-4">
+                <div class="flex items-center">
+                  <img
+                    class="w-16 h-16 object-cover mr-4"
+                    src="https://via.placeholder.com/64x64"
+                    alt="Recommended Product Image"
+                  />
+                  <div>
+                    <h4 class="text-gray-800 font-semibold">Product Title 1</h4>
+                    <span class="text-gray-600">$49.99</span>
+                  </div>
+                </div>
+              </li>
+              <li class="mb-4">
+                <div class="flex items-center">
+                  <img
+                    class="w-16 h-16 object-cover mr-4"
+                    src="https://via.placeholder.com/64x64"
+                    alt="Recommended Product Image"
+                  />
+                  <div>
+                    <h4 class="text-gray-800 font-semibold">Product Title 2</h4>
+                    <span class="text-gray-600">$79.99</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <img
+                    class="w-16 h-16 object-cover mr-4"
+                    src="https://via.placeholder.com/64x64"
+                    alt="Recommended Product Image"
+                  />
+                  <div>
+                    <h4 class="text-gray-800 font-semibold">Product Title 3</h4>
+                    <span class="text-gray-600">$59.99</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

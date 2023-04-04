@@ -5,6 +5,7 @@ import (
 
 	"template/database"
 
+	"github.com/dgraph-io/ristretto"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/template/html"
@@ -16,6 +17,15 @@ func main() {
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
+	}
+
+	cache, err := ristretto.NewCache(&ristretto.Config{
+		NumCounters: 1e7,     // number of keys to track frequency of (10M).
+		MaxCost:     1 << 30, // maximum cost of cache (1GB).
+		BufferItems: 64,      // number of keys per Get buffer.
+	})
+	if err != nil {
+		log.Fatalf("Error creating cache: %v", err)
 	}
 
 	database.ConnectDb()
@@ -35,7 +45,7 @@ func main() {
 		CacheDuration: 86400, // Set the expires header to 24 hours for better performance
 	})
 
-	setupRoutes(app)
+	setupRoutes(app, cache)
 
-	app.Listen(":3000")
+	app.Listen(":3080")
 }
