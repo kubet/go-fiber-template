@@ -3,9 +3,13 @@ module template
 go 1.19
 
 require (
+	github.com/dgraph-io/ristretto v0.1.1
+	github.com/go-playground/validator/v10 v10.12.0
 	github.com/gofiber/fiber/v2 v2.43.0
 	github.com/gofiber/template v1.7.5
+	github.com/golang-jwt/jwt/v5 v5.0.0-rc.2
 	github.com/joho/godotenv v1.5.1
+	golang.org/x/crypto v0.7.0
 	gorm.io/driver/postgres v1.4.4
 	gorm.io/gorm v1.24.0
 )
@@ -13,12 +17,9 @@ require (
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
-	github.com/dgraph-io/ristretto v0.1.1 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.12.0 // indirect
-	github.com/golang-jwt/jwt/v5 v5.0.0-rc.2 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
@@ -45,7 +46,6 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.45.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
 )
