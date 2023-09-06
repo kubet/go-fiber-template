@@ -17,9 +17,10 @@ type PageData struct {
 }
 
 type SinglePageData struct {
-	Title   string
-	Heading string
-	Product models.Product
+	Title               string
+	Heading             string
+	Product             models.Product
+	RecommendedProducts []models.Product // new field to hold recommended products
 }
 
 func GetProduct(c *fiber.Ctx) error {
@@ -116,6 +117,12 @@ func GetFilteredProductsHandler(cache *ristretto.Cache) fiber.Handler {
 		return c.JSON(products)
 	}
 }
+func getRandomProducts(excludeID uint, limit int) []models.Product {
+	var products []models.Product
+	database.DB.Db.Where("id <> ?", excludeID).Order("RANDOM()").Limit(limit).Find(&products)
+	return products
+}
+
 func GetProductHandler(cache *ristretto.Cache) fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		productId := c.Params("id")
@@ -129,7 +136,6 @@ func GetProductHandler(cache *ristretto.Cache) fiber.Handler {
 			var ok bool
 			product, ok = cachedProduct.(models.Product)
 			if !ok {
-				// Handle type assertion error here, e.g., log it
 				fmt.Printf("Type assertion error: %v\n", cachedProduct)
 			}
 		} else {
@@ -137,13 +143,16 @@ func GetProductHandler(cache *ristretto.Cache) fiber.Handler {
 			cache.SetWithTTL(cacheKey, product, 1, time.Minute*10) // Cache for 10 minutes
 		}
 
+		recommendedProducts := getRandomProducts(product.Id, 5) // Get 5 random recommended products excluding the current product
+
 		data := SinglePageData{
-			Title:   product.Name,
-			Heading: product.Name,
-			Product: product,
+			Title:               product.Name,
+			Heading:             product.Name,
+			Product:             product,
+			RecommendedProducts: recommendedProducts, // include recommended products in the data
 		}
 
-		return c.Render("p2", data)
+		return c.Render("p2", data) // Adjusted template name to 'product'
 	}
 }
 

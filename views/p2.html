@@ -68,62 +68,37 @@
             </div>
             <div class="p-6">
               <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-                Product Title
+                {{.Product.Name}}
               </h2>
-              <p class="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur aliquet libero eget lorem venenatis ultricies. Sed
-                velit ipsum, facilisis ut pharetra eu, sollicitudin non odio.
-              </p>
+              <p class="text-gray-600">Price: ${{.Product.Price}}</p>
             </div>
           </div>
         </div>
         <div class="col-span-12 md:col-span-4">
-          <div class="bg-white shadow-md rounded-lg overflow-hidden p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">
-              Recommended Products
-            </h3>
-            <ul>
-              <li class="mb-4">
-                <div class="flex items-center">
-                  <img
-                    class="w-16 h-16 object-cover mr-4"
-                    src="https://via.placeholder.com/64x64"
-                    alt="Recommended Product Image"
-                  />
-                  <div>
-                    <h4 class="text-gray-800 font-semibold">Product Title 1</h4>
-                    <span class="text-gray-600">$49.99</span>
+          <div class="bg-white shadow overflow-hidden sm:rounded-lg mt-8">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Recommended Products
+              </h3>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+              <dl class="sm:divide-y sm:divide-gray-200">
+                {{range .RecommendedProducts}}
+                <a href="/product/{{.Id}}" class="block hover:bg-gray-50">
+                  <div
+                    class="flex flex-wrap justify-between items-center py-3 sm:px-6 sm:py-4"
+                  >
+                    <dt class="text-sm font-medium text-gray-500">{{.Name}}</dt>
+                    <dd
+                      class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                    >
+                      ${{.Price}}
+                    </dd>
                   </div>
-                </div>
-              </li>
-              <li class="mb-4">
-                <div class="flex items-center">
-                  <img
-                    class="w-16 h-16 object-cover mr-4"
-                    src="https://via.placeholder.com/64x64"
-                    alt="Recommended Product Image"
-                  />
-                  <div>
-                    <h4 class="text-gray-800 font-semibold">Product Title 2</h4>
-                    <span class="text-gray-600">$79.99</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  <img
-                    class="w-16 h-16 object-cover mr-4"
-                    src="https://via.placeholder.com/64x64"
-                    alt="Recommended Product Image"
-                  />
-                  <div>
-                    <h4 class="text-gray-800 font-semibold">Product Title 3</h4>
-                    <span class="text-gray-600">$59.99</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
+                </a>
+                {{end}}
+              </dl>
+            </div>
           </div>
         </div>
       </div>
